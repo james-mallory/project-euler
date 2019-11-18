@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/james-mallory/project-euler/issues"
   },
-  "homepage": "https://github.com/james-mallory/project-euler#readme"
+  "homepage": "https://github.com/james-mallory/project-euler#readme",
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
 }
