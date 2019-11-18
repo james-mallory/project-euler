@@ -20,10 +20,9 @@ const MULTIPLE_CHECKS = [3, 5];
 
 let sum = 0;
 
-
-function solve() {
+export default function solve() {
     times(MAX, addToSum);
-    console.log(`Solution: ${sum}`);
+    console.log(`Solution #1: ${sum}`);
 }
 
 function addToSum(number) {
@@ -36,7 +35,3 @@ function addToSum(number) {
         }
     });
 }
-
-console.time(`solve`);
-solve();
-console.timeEnd(`solve`);

@@ -21,7 +21,7 @@ const values = [0, 1, 1];
 let sum = 0;
 let nextIndex = 0;
 
-function solve() {
+export default function solve() {
     let nextValue = 0;
     while (nextValue <= MAX) {
         const currentIndex = getPreviousIndex(nextIndex);
@@ -37,13 +37,9 @@ function solve() {
         nextIndex = prevIndex;
     }
 
-    console.log(`Solution: ${sum}`);
+    console.log(`Solution #2: ${sum}`);
 }
 
 function getPreviousIndex(current) {
     return (current + (values.length - 1)) % values.length; // 0 -> 2, 1 -> 0, 2 -> 1
 }
-
-console.time(`solve`);
-solve();
-console.timeEnd(`solve`);
