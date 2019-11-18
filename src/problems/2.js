@@ -13,7 +13,7 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 
  */
 
-import getIsMultipleOf from '../utils/factoring';
+import { getIsMultipleOf } from '../utils/factoring';
 
 const MAX = 4000000;
 const values = [0, 1, 1];

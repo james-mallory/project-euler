@@ -13,7 +13,7 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 import times from 'lodash/times';
 import some from 'lodash/some';
 
-import getIsMultipleOf from '../utils/factoring';
+import { getIsMultipleOf } from '../utils/factoring';
 
 const MAX = 1000;
 const MULTIPLE_CHECKS = [3, 5];

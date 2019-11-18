@@ -5,7 +5,7 @@ export function getIsMultipleOf(A, B) {
 }
 
 export function getIsPrime(number) {
-    const root = Math.sqrt(number);
+    const root = Math.floor(Math.sqrt(number));
     let isPrime = true;
     for (let i = 2; i < root; i++) {
         if (getIsMultipleOf(number, i)) {
