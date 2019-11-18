@@ -23,7 +23,7 @@ let sum = 0;
 
 function solve() {
     times(MAX, addToSum);
-    console.log(sum);
+    console.log(`Solution: ${sum}`);
 }
 
 function addToSum(number) {
@@ -36,3 +36,7 @@ function addToSum(number) {
         }
     });
 }
+
+console.time(`solve`);
+solve();
+console.timeEnd(`solve`);
