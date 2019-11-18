@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/james-mallory/project-euler#readme",
   "dependencies": {
+    "esm": "^3.2.25",
     "lodash": "^4.17.15"
   }
 }
