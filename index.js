@@ -5,6 +5,6 @@ function run() {
     forEach(problems, problem => problem(false));
 }
 
-console.time(`run`);
+console.time(`Time for all problems`);
 run();
-console.timeEnd(`run`);
+console.timeEnd(`Time for all problems`);
