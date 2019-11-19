@@ -10,7 +10,7 @@ What is the largest prime factor of the number 600851475143 ?
 
  */
 
-import { getIsPrime, getIsMultipleOf } from '../utils/factoring';
+import { getIsPrimeFactor } from '../utils/factoring';
 
 const NUM = 600851475143;
 
@@ -19,7 +19,7 @@ let largestPrimeFactor = 0;
 export default function solve() {
     const root = Math.floor(Math.sqrt(NUM));
     for (let i = root; i > 1; i--) {
-        if (getIsMultipleOf(NUM, i) && getIsPrime(i)) {
+        if (getIsPrimeFactor(NUM, i)) {
             largestPrimeFactor = i;
             break;
         }
