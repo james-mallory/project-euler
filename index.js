@@ -1,10 +1,22 @@
 import forEach from 'lodash/forEach';
-import problems from './src/problems';
+import fs from 'fs';
+
+const PROBLEMS_PATH = './src/problems';
 
 function run() {
-    forEach(problems, problem => problem(false));
+    console.time(`Time for all problems`);
+    fs.readdir(PROBLEMS_PATH, importAndRunAll);
 }
 
-console.time(`Time for all problems`);
+function importAndRunAll(err, files) {
+    forEach(files, importAndRun);
+    console.timeEnd(`Time for all problems`);
+}
+
+function importAndRun(file) {
+    const problem = require(`${PROBLEMS_PATH}/${file}`);
+    problem.default();
+}
+
 run();
-console.timeEnd(`Time for all problems`);
+

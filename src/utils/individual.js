@@ -2,7 +2,7 @@ import { argv as args } from 'yargs';
 
 const problem = args.p;
 
-const problemSolver = require(`./${problem}`).default;
+const problemSolver = require(`../problems/${problem}`).default;
 
 console.time(`elapsed time`);
 problemSolver();
