@@ -10,22 +10,21 @@ What is the smallest positive number that is evenly divisible by all of the numb
 
  */
 
-import { getIsPalindrome } from '../utils/math';
+import some from 'lodash/some';
+import { getIsMultipleOf } from '../utils/factoring';
 
-const NUM = 999;
+const START = 2520;
+const NUMS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
-let largestPalidrome = 0;
+let smallestPosNum = 0;
 
 export default function solve() {
-    for (let i = NUM; i > 99; i--) {
-        for (let j = NUM; j > 99; j--) {
-            const product = i * j;
-            if (getIsPalindrome(product)) {
-                if (product > largestPalidrome) largestPalidrome = product;
-                break;
-            }
+    for (let i = START; !smallestPosNum; i++) {
+        console.log(`Problem #5: checking ${i}`);
+        const isMultipleOfAll = !some(NUMS, num => !getIsMultipleOf(i, num));
+        if (isMultipleOfAll) {
+            smallestPosNum = i;
         }
     }
-
-    console.log(`Solution #4: ${largestPalidrome}`);
+    console.log(`Solution #4: ${smallestPosNum}`);
 }
