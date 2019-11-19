@@ -11,7 +11,7 @@ export function getNthPrime(n) {
     let currentPrime = 2;
     let primeCounter = 0;
     let counter = 2;
-    while (primeCounter <= n) {
+    while (primeCounter < n) {
         if (getIsPrime(counter)) {
             currentPrime = counter;
             primeCounter++;
