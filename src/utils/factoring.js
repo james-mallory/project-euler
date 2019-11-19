@@ -1,6 +1,5 @@
 import forEach from 'lodash/forEach';
 import max from 'lodash/max';
-import min from 'lodash/min';
 import uniq from 'lodash/uniq';
 import get from 'lodash/get';
 

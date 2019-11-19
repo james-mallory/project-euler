@@ -10,21 +10,15 @@ What is the smallest positive number that is evenly divisible by all of the numb
 
  */
 
-import some from 'lodash/some';
-import { getIsMultipleOf } from '../utils/factoring';
+import forEach from 'lodash/forEach';
+import { getLCM } from '../utils/factoring';
 
-const START = 2520;
 const NUMS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
-let smallestPosNum = 0;
-
 export default function solve() {
-    for (let i = START; !smallestPosNum; i++) {
-        console.log(`Problem #5: checking ${i}`);
-        const isMultipleOfAll = !some(NUMS, num => !getIsMultipleOf(i, num));
-        if (isMultipleOfAll) {
-            smallestPosNum = i;
-        }
-    }
-    console.log(`Solution #4: ${smallestPosNum}`);
+    let currentLCM = 1;
+    forEach(NUMS, num => {
+        currentLCM = getLCM(num, currentLCM);
+    });
+    console.log(`Solution #5: ${currentLCM}`);
 }
