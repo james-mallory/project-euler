@@ -7,10 +7,26 @@ export function getIsMultipleOf(A, B) {
     return A % B === 0;
 }
 
+export function getNthPrime(n) {
+    let currentPrime = 2;
+    let primeCounter = 0;
+    let counter = 2;
+    while (primeCounter <= n) {
+        if (getIsPrime(counter)) {
+            currentPrime = counter;
+            primeCounter++;
+        }
+        counter++;
+    }
+    return currentPrime;
+}
+
 export function getIsPrime(number) {
+    if (number === 2) return true;
+
     const root = Math.floor(Math.sqrt(number));
     let isPrime = true;
-    for (let i = 2; i < root; i++) {
+    for (let i = 2; i <= root + 1; i++) {
         if (getIsMultipleOf(number, i)) {
             isPrime = false;
             break;
