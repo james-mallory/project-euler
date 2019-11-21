@@ -23,6 +23,7 @@ export function getNthPrime(n) {
 
 export function getIsPrime(number) {
     if (number === 2) return true;
+    if (number === 1) return false;
 
     const root = Math.floor(Math.sqrt(number));
     let isPrime = true;
