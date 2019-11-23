@@ -61,3 +61,19 @@ export function getProductOfNumbers(numbers) {
 export function getIsPythagoreanTriplet(a, b, c) {
     return Math.pow(a, 2) + Math.pow(b, 2) === Math.pow(c, 2);
 }
+
+export function getNthTriangularNumber(n) {
+    let number = 0;
+    for (let i = 0; i < n; i++) {
+        number += i + 1;
+    }
+    return number;
+}
+
+export function getNthConsecutiveProduct(n) {
+    let product = 1;
+    for (let i = 1; i <= n; i++) {
+        product *= i;
+    }
+    return product;
+}
