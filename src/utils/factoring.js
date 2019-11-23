@@ -7,6 +7,19 @@ export function getIsMultipleOf(A, B) {
     return A % B === 0;
 }
 
+export function getFactors(number) {
+    const factors = [1];
+    if (number === 1) return factors;
+    const halfway = Math.ceil(number / 2) + 1;
+    for (let i = 2; i < halfway; i++) {
+        if (getIsMultipleOf(number, i)) {
+            factors.push(i);
+        }
+    }
+    factors.push(number);
+    return factors;
+}
+
 export function getNthPrime(n) {
     let currentPrime = 2;
     let primeCounter = 0;
@@ -71,6 +84,7 @@ export function findLCMFromPrimeFactors(factorsA, factorsB) {
     return lcm;
 }
 
+// How many times does each prime factor appear?
 function getFactorCount(factors) {
     const factorCount = {};
     forEach(factors, factor => {
