@@ -77,3 +77,24 @@ export function getNthConsecutiveProduct(n) {
     }
     return product;
 }
+
+export function getCollatzSequence(startingNumber, sequenceDictionary = {}) {
+    let sequence = [startingNumber];
+
+    while (sequence[sequence.length - 1] !== 1) {
+        const num = sequence[sequence.length - 1];
+        const dictionary = sequenceDictionary[num];
+        if (dictionary) {
+            sequence = sequence.concat(dictionary.slice(1));
+        } else {
+            const isEven = num % 2 === 0;
+            if (isEven) {
+                sequence.push(num / 2);
+            } else {
+                sequence.push(3 * num + 1);
+            }
+        }
+    }
+    sequenceDictionary[startingNumber] = sequence;
+    return sequence;
+}
