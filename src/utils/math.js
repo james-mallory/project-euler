@@ -110,3 +110,25 @@ export function permute(n, r) {
 export function choose(n, r) {
     return factorial(n) / (factorial(n - r) * factorial(r));
 }
+
+export function sumOfDigits(number) {
+    let sum = 0;
+    while (number !== 0) {
+        const onesDigit = number % 10;
+        sum += onesDigit;
+        number -= onesDigit;
+        number /= 10;
+    }
+    return sum;
+}
+
+export function sumOfDigitsBig(number) {
+    let sum = 0n;
+    while (number !== 0n) {
+        const onesDigit = number % 10n;
+        sum += onesDigit;
+        number -= onesDigit;
+        number /= 10n;
+    }
+    return sum;
+}
