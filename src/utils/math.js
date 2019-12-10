@@ -102,3 +102,11 @@ export function getCollatzSequence(startingNumber, sequenceDictionary = {}) {
     sequenceDictionary[startingNumber] = sequence;
     return sequence;
 }
+
+export function permute(n, r) {
+    return factorial(n) / factorial(n - r);
+}
+
+export function choose(n, r) {
+    return factorial(n) / (factorial(n - r) * factorial(r));
+}
