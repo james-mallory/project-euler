@@ -78,6 +78,10 @@ export function getNthConsecutiveProduct(n) {
     return product;
 }
 
+export function factorial(n) {
+    return getNthConsecutiveProduct(n);
+}
+
 export function getCollatzSequence(startingNumber, sequenceDictionary = {}) {
     let sequence = [startingNumber];
 
