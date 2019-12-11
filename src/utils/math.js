@@ -1,6 +1,8 @@
 import split from 'lodash/split';
 import forEach from 'lodash/forEach';
 
+import * as NUMBER_COUNTS from './numberOfLetters';
+
 export function getIsPalindrome(number) {
     const numberString = number.toString();
     const reverseString = numberString.split(``).reverse().join(``);
@@ -131,4 +133,33 @@ export function sumOfDigitsBig(number) {
         number /= 10n;
     }
     return sum;
+}
+
+// for numbers 1 through 1000
+export function getNumberLetterCount(number) {
+    let wordCount = 0;
+    if (number > 999) {
+        wordCount += NUMBER_COUNTS.ONES_DIGIT[1] + NUMBER_COUNTS.THOUSAND;
+    } else {
+        const onesDigit = number % 10;
+        const tensDigit = (number % 100 - onesDigit) / 10;
+        const hundredsDigit = (number % 1000 - 10 * tensDigit - onesDigit) / 100;
+
+        if (number > 99) {
+            wordCount += NUMBER_COUNTS.ONES_DIGIT[hundredsDigit] + NUMBER_COUNTS.HUNDRED;
+            if (tensDigit !== 0 || onesDigit !== 0) wordCount += NUMBER_COUNTS.AND;
+        }
+
+        if (number > 9) {
+            if (tensDigit === 1) {
+                wordCount += NUMBER_COUNTS.TEENS[onesDigit];
+            } else if (tensDigit > 0) {
+                wordCount += NUMBER_COUNTS.TENS_DIGIT[tensDigit];
+            }
+        }
+
+        if (tensDigit !== 1 && onesDigit > 0) wordCount += NUMBER_COUNTS.ONES_DIGIT[onesDigit];
+    }
+
+    return wordCount;
 }
