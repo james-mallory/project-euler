@@ -1,5 +1,6 @@
 import split from 'lodash/split';
 import forEach from 'lodash/forEach';
+import max from 'lodash/max';
 
 import * as NUMBER_COUNTS from './numberOfLetters';
 
@@ -162,4 +163,30 @@ export function getNumberLetterCount(number) {
     }
 
     return wordCount;
+}
+
+export function getMaxNumberTriangle(triangleString) {
+    // turn string into array of lines
+    const triangleLines = triangleString.split(`\n`);
+
+    // turn array of lines into array of array of digits
+    const triangleDigits = [];
+    triangleLines.forEach(lineString => {
+        triangleDigits.push(lineString.split(` `));
+    });
+
+    // starting from the second to last row, go through each line, taking the max sum of itself and 2 adjacent below it
+    for (let i = triangleDigits.length - 2; i >= 0; i--) {
+        const row = triangleDigits[i];
+        const rowUnder = triangleDigits[i + 1];
+        for (let j = 0; j < row.length; j++) {
+            const number = parseInt(row[j]);
+            const leftBelow = parseInt(rowUnder[j]);
+            const rightBelow = parseInt(rowUnder[j + 1]);
+            row[j] = max([number + leftBelow, number + rightBelow]);
+        }
+    }
+
+    // the max will end up as the value of the top number
+    return triangleDigits[0][0];
 }
