@@ -15,7 +15,6 @@ solution: 21124
  */
 
 import { getNumberLetterCount } from '../utils/math';
-import isFinite from 'lodash/isFinite';
 
 export default function solve() {
     let sum = 0;
