@@ -7,7 +7,7 @@ export function getIsMultipleOf(A, B) {
     return A % B === 0;
 }
 
-export function getFactors(number) {
+export function getFactors(number, isProper) {
     const factors = [1];
     if (number === 1) return factors;
     const halfway = Math.ceil(number / 2) + 1;
@@ -16,7 +16,9 @@ export function getFactors(number) {
             factors.push(i);
         }
     }
-    factors.push(number);
+    if (!isProper) {
+        factors.push(number);
+    }
     return factors;
 }
 
