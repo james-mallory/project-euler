@@ -73,16 +73,17 @@ export function getNthTriangularNumber(n) {
     return number;
 }
 
-export function getNthConsecutiveProduct(n) {
-    let product = 1;
-    for (let i = 1; i <= n; i++) {
+export function getNthConsecutiveProduct(n, isBig) {
+    const baseNumber = isBig ? 1n: 1;
+    let product = baseNumber;
+    for (let i = baseNumber; i <= n; i++) {
         product *= i;
     }
     return product;
 }
 
-export function factorial(n) {
-    return getNthConsecutiveProduct(n);
+export function factorial(n, isBig) {
+    return getNthConsecutiveProduct(n, isBig);
 }
 
 export function getCollatzSequence(startingNumber, sequenceDictionary = {}) {
