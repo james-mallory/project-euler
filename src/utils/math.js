@@ -1,5 +1,4 @@
 import split from 'lodash/split';
-import forEach from 'lodash/forEach';
 import max from 'lodash/max';
 
 import * as NUMBER_COUNTS from './numberOfLetters';
@@ -36,7 +35,7 @@ export function getMaxProductOfNAdjacentDigits(number, n) {
 
     let maxProduct = 0;
     const nNumbersArray = [];
-    forEach(numberArray, numberAsString => {
+    numberArray.forEach(numberAsString => {
         const num = parseInt(numberAsString);
         nNumbersArray.push(num); 
 
@@ -55,10 +54,18 @@ export function getMaxProductOfNAdjacentDigits(number, n) {
 
 export function getProductOfNumbers(numbers) {
     let product = 1;
-    forEach(numbers, number => {
+    numbers.forEach(number => {
         product *= number;
     });
     return product;
+}
+
+export function getSumOfNumbers(numbers) {
+    let sum = 0;
+    numbers.forEach(number => {
+        sum += number;
+    });
+    return sum;
 }
 
 export function getIsPythagoreanTriplet(a, b, c) {
