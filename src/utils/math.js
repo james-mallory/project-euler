@@ -1,7 +1,9 @@
 import split from 'lodash/split';
 import max from 'lodash/max';
+import reduce from 'lodash/reduce';
 
 import * as NUMBER_COUNTS from './numberOfLetters';
+import ALPHABET_VALUES from '../data/alphabetValues.json';
 
 export function getIsPalindrome(number) {
     const numberString = number.toString();
@@ -197,4 +199,11 @@ export function getMaxNumberTriangle(triangleString) {
 
     // the max will end up as the value of the top number
     return triangleDigits[0][0];
+}
+
+// james = j + a + m + e + s = 10 + 1 + 13 + 5 + 19 = 48 
+export function getStringAlphabeticalValue(string) {
+    return reduce(string.split(""), (sum, char) => {
+        return sum + ALPHABET_VALUES[char.toLowerCase()];
+    }, 0);
 }
