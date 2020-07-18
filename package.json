@@ -20,7 +20,7 @@
   "homepage": "https://github.com/james-mallory/project-euler#readme",
   "dependencies": {
     "esm": "^3.2.25",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "moment": "^2.24.0",
     "yargs": "^15.0.1"
   }
