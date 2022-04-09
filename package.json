@@ -21,7 +21,7 @@
   "dependencies": {
     "esm": "^3.2.25",
     "lodash": "^4.17.19",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "yargs": "^15.0.1"
   }
 }
